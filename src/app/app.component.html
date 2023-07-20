@@ -1,17 +1,22 @@
 <main>
   <div class="container">
-    <h1 class="title">Branch Maker</h1>
-    <mat-button-toggle-group (change)="getOption($event.value)">
+    <!-- title -->
+    <h1 class="title">{{ title }}</h1>
+
+    <mat-button-toggle-group
+      (change)="getOption($event.value)"
+      [value]="optionCliked"
+    >
       <mat-button-toggle
         class="buttonsOption"
         [value]="item.option"
         *ngFor="let item of options"
         >{{ item.option }}</mat-button-toggle
       >
-      <!-- <mat-button-toggle value="Bug">Bug</mat-button-toggle>
-      <mat-button-toggle value="Enhancement">Enhancement</mat-button-toggle>
-      <mat-button-toggle value="Hotfix">Hotfix</mat-button-toggle> -->
     </mat-button-toggle-group>
+
+    <!-- form -->
+    <div></div>
     <span>{{ optionCliked }}</span>
   </div>
 </main>

@@ -6,9 +6,9 @@ import { Component, OnChanges } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'branch-maker';
+  title = 'Branch Maker';
 
-  optionCliked: string = '';
+  optionCliked: string = 'Task';
 
   options = [
     { option: 'Task' },
