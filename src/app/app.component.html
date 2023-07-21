@@ -4,6 +4,7 @@
     <h1 class="title">{{ title }}</h1>
 
     <mat-button-toggle-group
+      class="buttonToggleGroup"
       (change)="getOption($event.value)"
       [value]="optionCliked"
     >
@@ -11,12 +12,30 @@
         class="buttonsOption"
         [value]="item.option"
         *ngFor="let item of options"
-        >{{ item.option }}</mat-button-toggle
+        >{{ item.option | titlecase }}</mat-button-toggle
       >
     </mat-button-toggle-group>
 
     <!-- form -->
-    <div></div>
-    <span>{{ optionCliked }}</span>
+    <form class="form" [formGroup]="form" (ngSubmit)="copy()">
+      <div id="id">
+        <label> ID </label>
+        <input
+          type="number"
+          autofocus
+          [ngClass]="validErrorInputForm('id')"
+          formControlName="id"
+        />
+      </div>
+
+      <div id="branch">
+        <label> Branch name </label>
+        <input type="text" formControlName="branch" />
+      </div>
+    </form>
+    <span class="copy">{{ optionCliked }}</span>
+
+    <!-- button copy -->
+    <button type="submit" (click)="copy()" class="buttonCopy">Copiar</button>
   </div>
 </main>

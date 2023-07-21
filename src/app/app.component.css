@@ -1,14 +1,157 @@
-.container {
+main {
   height: 100vh;
   width: 100vw;
+}
+.container {
+  width: 100%;
+  max-width: 540px;
+  height: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  /* text-align: center; */
+  text-align: center;
+}
+
+.title {
+  color: #373737;
+
+  font-size: 40px;
+  font-weight: 600;
+
+  margin-bottom: 53px;
+}
+
+.buttonToggleGroup {
+  width: 100%;
+
+  display: inline-flex;
+  justify-content: space-between;
+  gap: 10px;
+
+  padding: 10px 14px;
+
+  border: none;
+  border-radius: 13px;
+
+  background-color: #ddeff9;
+}
+
+.buttonsOption {
+  padding: 12px;
+
+  font-size: 20px;
+  font-weight: 600;
+
+  border-radius: 9px;
+  background-color: #fff;
 }
 
 .buttonsOption.mat-button-toggle-checked {
+  color: #fff;
   background-color: #00a3ff;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#id,
+#branch {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 42px;
+}
+
+#branch {
+  margin-bottom: 62px;
+}
+
+label {
+  display: flex;
+  justify-content: flex-start;
+  color: #373737;
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+input {
+  padding: 14px 18px;
+
+  color: #373737;
+  font-size: 18px;
+  font-weight: 400;
+
+  border-radius: 10px;
+  border: 3px solid #ddeff9;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input:focus {
+  outline: none;
+  border: 3px solid #00a3ff !important; /* Altere para o estilo desejado */
+  /* Adicione outros estilos conforme necessário */
+}
+
+input.ng-invalid.ng-touched {
+  outline: none;
+  border: 3px solid red; /* Altere para o estilo desejado */
+  /* Adicione outros estilos conforme necessário */
+}
+
+input.ng-valid {
+  outline: none;
+  border: 3px solid green;
+}
+
+.copy {
+  width: 100%;
+  padding: 25px;
+  text-align: center;
+
+  border-radius: 22px;
+  background: #ddeff9;
+
+  color: #002e48;
+  font-family: IBM Plex Mono;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.buttonCopy {
+  width: 100%;
+  max-width: 129px;
+  width: 100%;
+  max-height: 45px;
+
+  padding: 12px 43px;
+
+  margin-top: 19px;
+
+  border: none;
+  border-radius: 100px;
+  background-color: #00a3ff;
+
+  box-shadow: 0px 4px 12px 0px rgba(24, 134, 197, 0.18);
+
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+
+  display: flex;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.buttonCopy:hover {
+  opacity: 0.8;
 }

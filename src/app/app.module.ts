@@ -6,7 +6,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // MATERIAL
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,6 +16,8 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     MatButtonToggleModule,
     FormsModule,
+    ReactiveFormsModule,
+    InputTextModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
