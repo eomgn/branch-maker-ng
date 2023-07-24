@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Clipboard } from '@angular/cdk/clipboard';
+import { SnackBarService } from './snack-bar.service';
 
 const options = [
   { option: 'task' },
@@ -21,11 +22,13 @@ export class AppComponent implements OnInit {
 
   form!: FormGroup;
 
-  xd: any;
-
-  constructor(private formBuilder: FormBuilder, private clipboard: Clipboard) {}
-
   optionCliked: string = '';
+
+  constructor(
+    private formBuilder: FormBuilder,
+    private clipboard: Clipboard,
+    private snackBar: SnackBarService
+  ) {}
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -34,19 +37,9 @@ export class AppComponent implements OnInit {
     });
   }
 
-  getErrorInputForm(campo: string) {
-    return !this.form.get(campo)?.valid;
-  }
-
-  validErrorInputForm(campo: string) {
-    return {
-      valid: this.getErrorInputForm(campo),
-    };
-  }
-
   getOption(event: string) {
-    this.form.valueChanges.subscribe((valor) => {
-      this.optionCliked = `${event}/${valor.id}-${valor.branch
+    this.form.valueChanges.subscribe((form) => {
+      this.optionCliked = `${event}/${form.id}-${form.branch
         .toLowerCase()
         .replace(/\s+/g, '-')}`;
     });
@@ -55,6 +48,8 @@ export class AppComponent implements OnInit {
   copy() {
     this.clipboard.copy(`git checkout -b ${this.optionCliked}`);
 
-    alert(`Copiado ${this.optionCliked}`);
+    // alert(`Copiado ${this.optionCliked}`);
+
+    this.snackBar.showNofity(`Copiado ${this.optionCliked}`);
   }
 }
