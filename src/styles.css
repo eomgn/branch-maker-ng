@@ -10,3 +10,10 @@ body {
   /* font-family: 'IBM Plex Mono', monospace; */
   font-family: "Inter", sans-serif;
 }
+
+/* custom snackbar */
+.mat-mdc-snack-bar-container {
+  --mdc-snackbar-container-color: green !important;
+  --mat-mdc-snack-bar-button-color: #fff;
+  --mdc-snackbar-supporting-text-color: #fff;
+}

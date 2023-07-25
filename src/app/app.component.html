@@ -27,13 +27,15 @@
         <input type="text" formControlName="branch" />
       </div>
     </form>
+
+    <!-- reveal -->
     <span class="copy" *ngIf="optionCliked">{{ optionCliked }}</span>
 
     <!-- button copy -->
     <button
       type="submit"
       (click)="copy()"
-      *ngIf="optionCliked"
+      *ngIf="form.valid === true"
       class="buttonCopy"
     >
       Copiar

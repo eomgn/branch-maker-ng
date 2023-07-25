@@ -48,8 +48,6 @@ export class AppComponent implements OnInit {
   copy() {
     this.clipboard.copy(`git checkout -b ${this.optionCliked}`);
 
-    // alert(`Copiado ${this.optionCliked}`);
-
-    this.snackBar.showNofity(`Copiado ${this.optionCliked}`);
+    this.snackBar.showNofity(`Copiado com sucesso!`);
   }
 }

@@ -9,10 +9,9 @@ export class SnackBarService {
 
   showNofity(message: string) {
     this.snackBar.open(message, 'X', {
-      duration: 3000,
+      duration: 5000,
       verticalPosition: 'top',
       horizontalPosition: 'center',
-      panelClass: 'success_snackbar',
     });
   }
 }
