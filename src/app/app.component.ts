@@ -22,7 +22,8 @@ export class AppComponent implements OnInit {
 
   form!: FormGroup;
 
-  optionCliked: string = '';
+  optionCliked: string = 'task';
+  result: string = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -31,23 +32,33 @@ export class AppComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+    // formbuilder
     this.form = this.formBuilder.group({
       id: ['', Validators.required],
       branch: ['', Validators.required],
     });
-  }
 
-  getOption(event: string) {
+    // subscribe in form for valuechanges
     this.form.valueChanges.subscribe((form) => {
-      this.optionCliked = `${event}/${form.id}-${form.branch
+      // show result
+      this.result = `${this.optionCliked}/${form.id}-${form.branch
         .toLowerCase()
         .replace(/\s+/g, '-')}`;
     });
   }
 
+  getOption(event: string) {
+    // capture value from option clicked
+    this.optionCliked = event;
+  }
+
   copy() {
-    this.clipboard.copy(`git checkout -b ${this.optionCliked}`);
+    this.clipboard.copy(`git checkout -b ${this.result}`);
 
     this.snackBar.showNofity(`Copiado com sucesso!`);
+  }
+
+  revealCopy() {
+    return this.form.valid;
   }
 }

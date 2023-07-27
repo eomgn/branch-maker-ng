@@ -3,9 +3,11 @@
     <!-- title -->
     <h1 class="title">{{ title }}</h1>
 
+    <!-- option clicked -->
     <mat-button-toggle-group
       class="buttonToggleGroup"
       (change)="getOption($event.value)"
+      [(ngModel)]="optionCliked"
     >
       <mat-button-toggle
         class="buttonsOption"
@@ -28,14 +30,14 @@
       </div>
     </form>
 
-    <!-- reveal -->
-    <span class="copy" *ngIf="optionCliked">{{ optionCliked }}</span>
+    <!-- result -->
+    <span class="copy" *ngIf="revealCopy()">{{ result }}</span>
 
     <!-- button copy -->
     <button
       type="submit"
       (click)="copy()"
-      *ngIf="form.valid === true"
+      *ngIf="revealCopy()"
       class="buttonCopy"
     >
       Copiar
